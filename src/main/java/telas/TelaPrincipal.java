@@ -23,7 +23,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
 
-public class FrmMain extends JFrame {
+public class TelaPrincipal extends JFrame {
 
 	private JPanel contentPane;
 
@@ -34,7 +34,7 @@ public class FrmMain extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrmMain frame = new FrmMain();
+					TelaPrincipal frame = new TelaPrincipal();
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -47,7 +47,7 @@ public class FrmMain extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FrmMain() {
+	public TelaPrincipal() {
 		setTitle("Loto Facil");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -62,7 +62,7 @@ public class FrmMain extends JFrame {
 		panel.add(btnJogar);
 		btnJogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FrmPlay form = new FrmPlay();
+				TelaJogar form = new TelaJogar();
 				form.setLocationRelativeTo(null);
 				form.setVisible(true);
 				dispose();

@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class FrmPlay extends JFrame {
+public class TelaJogar extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txt_01;
@@ -43,7 +43,7 @@ public class FrmPlay extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrmPlay frame = new FrmPlay();
+					TelaJogar frame = new TelaJogar();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -56,7 +56,7 @@ public class FrmPlay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FrmPlay() {
+	public TelaJogar() {
 		setTitle("PLAY");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 230);
@@ -335,7 +335,7 @@ public class FrmPlay extends JFrame {
 		JButton btnSalve = new JButton("<<<<");
 		btnSalve.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FrmMain form = new FrmMain();
+				TelaPrincipal form = new TelaPrincipal();
 				form.setLocationRelativeTo(null);
 				form.setVisible(true);
 				dispose();
