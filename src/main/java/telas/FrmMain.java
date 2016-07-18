@@ -12,6 +12,16 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import javax.swing.JToolBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JDesktopPane;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.BoxLayout;
+import java.awt.FlowLayout;
 
 public class FrmMain extends JFrame {
 
@@ -44,14 +54,12 @@ public class FrmMain extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{0, 0, 0, 0};
-		gbl_contentPane.rowHeights = new int[]{0, 0};
-		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{0.0, Double.MIN_VALUE};
-		contentPane.setLayout(gbl_contentPane);
+		
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JButton btnJogar = new JButton("Jogar");
+		panel.add(btnJogar);
 		btnJogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrmPlay form = new FrmPlay();
@@ -60,24 +68,28 @@ public class FrmMain extends JFrame {
 				dispose();
 			}
 		});
-		GridBagConstraints gbc_btnJogar = new GridBagConstraints();
-		gbc_btnJogar.insets = new Insets(0, 0, 0, 5);
-		gbc_btnJogar.gridx = 0;
-		gbc_btnJogar.gridy = 0;
-		contentPane.add(btnJogar, gbc_btnJogar);
 		
 		JButton btnResultado = new JButton("Resultado");
-		GridBagConstraints gbc_btnResultado = new GridBagConstraints();
-		gbc_btnResultado.insets = new Insets(0, 0, 0, 5);
-		gbc_btnResultado.gridx = 1;
-		gbc_btnResultado.gridy = 0;
-		contentPane.add(btnResultado, gbc_btnResultado);
+		btnResultado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		panel.add(btnResultado);
 		
 		JButton btnConferencia = new JButton("Possibilidades");
-		GridBagConstraints gbc_btnConferencia = new GridBagConstraints();
-		gbc_btnConferencia.gridx = 2;
-		gbc_btnConferencia.gridy = 0;
-		contentPane.add(btnConferencia, gbc_btnConferencia);
+		panel.add(btnConferencia);
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+		);
+		
+		JButton btnPesquisar = new JButton("Pesquisar");
+		panel.add(btnPesquisar);
+		contentPane.setLayout(gl_contentPane);
 	}
-
 }
