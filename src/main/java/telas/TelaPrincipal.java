@@ -69,7 +69,7 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		
-		JButton btnResultado = new JButton("Resultado");
+		JButton btnResultado = new JButton("Pesquisar");
 		btnResultado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -88,7 +88,7 @@ public class TelaPrincipal extends JFrame {
 				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
 		);
 		
-		JButton btnPesquisar = new JButton("Pesquisar");
+		JButton btnPesquisar = new JButton("Resultado");
 		panel.add(btnPesquisar);
 		contentPane.setLayout(gl_contentPane);
 	}

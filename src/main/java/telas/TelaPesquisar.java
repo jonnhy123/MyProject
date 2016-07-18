@@ -18,7 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-public class TelaResultado extends JFrame {
+public class TelaPesquisar extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table_01;
@@ -37,7 +37,7 @@ public class TelaResultado extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaResultado frame = new TelaResultado();
+					TelaPesquisar frame = new TelaPesquisar();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,7 +49,7 @@ public class TelaResultado extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaResultado() {
+	public TelaPesquisar() {
 		setTitle("Result");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 633, 446);
