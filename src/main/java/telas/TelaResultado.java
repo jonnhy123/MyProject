@@ -25,6 +25,10 @@ public class TelaResultado extends JFrame {
 	private JTable table_02;
 	private JTextField textField_1;
 	private JTextField textField;
+	private JTable table;
+	private JTextField textField_2;
+	private JTable table_1;
+	private JTextField textField_3;
 
 	/**
 	 * Launch the application.
@@ -133,6 +137,7 @@ public class TelaResultado extends JFrame {
 		panel_7.add(button_1);
 		
 		JPanel panel_3 = new JPanel();
+		panel_3.setLayout(null);
 		GridBagConstraints gbc_panel_3 = new GridBagConstraints();
 		gbc_panel_3.insets = new Insets(0, 0, 0, 5);
 		gbc_panel_3.fill = GridBagConstraints.BOTH;
@@ -140,11 +145,54 @@ public class TelaResultado extends JFrame {
 		gbc_panel_3.gridy = 1;
 		contentPane.add(panel_3, gbc_panel_3);
 		
+		JPanel panel_9 = new JPanel();
+		panel_9.setBounds(10, 11, 281, 142);
+		panel_3.add(panel_9);
+		
+		table = new JTable();
+		panel_9.add(table);
+		
+		JPanel panel_10 = new JPanel();
+		panel_10.setBounds(0, 159, 301, 37);
+		panel_3.add(panel_10);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		panel_10.add(textField_2);
+		
+		JButton button_4 = new JButton("Pesquisar");
+		panel_10.add(button_4);
+		
+		JButton button_5 = new JButton("Zerar");
+		panel_10.add(button_5);
+		
 		JPanel panel_4 = new JPanel();
+		panel_4.setLayout(null);
 		GridBagConstraints gbc_panel_4 = new GridBagConstraints();
 		gbc_panel_4.fill = GridBagConstraints.BOTH;
 		gbc_panel_4.gridx = 1;
 		gbc_panel_4.gridy = 1;
 		contentPane.add(panel_4, gbc_panel_4);
+		
+		JPanel panel_11 = new JPanel();
+		panel_11.setBounds(10, 11, 281, 142);
+		panel_4.add(panel_11);
+		
+		table_1 = new JTable();
+		panel_11.add(table_1);
+		
+		JPanel panel_12 = new JPanel();
+		panel_12.setBounds(-10, 159, 301, 37);
+		panel_4.add(panel_12);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		panel_12.add(textField_3);
+		
+		JButton button_6 = new JButton("Pesquisar");
+		panel_12.add(button_6);
+		
+		JButton button_7 = new JButton("Zerar");
+		panel_12.add(button_7);
 	}
 }
