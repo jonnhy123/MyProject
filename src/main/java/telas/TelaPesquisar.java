@@ -50,7 +50,7 @@ public class TelaPesquisar extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaPesquisar() {
-		setTitle("Result");
+		setTitle("Tela Pesquisar");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 633, 446);
 		contentPane = new JPanel();

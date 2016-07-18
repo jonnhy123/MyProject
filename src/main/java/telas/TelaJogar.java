@@ -57,7 +57,7 @@ public class TelaJogar extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaJogar() {
-		setTitle("PLAY");
+		setTitle("Tela Jogar");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 230);
 		contentPane = new JPanel();
