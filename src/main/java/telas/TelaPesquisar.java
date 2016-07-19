@@ -52,14 +52,14 @@ public class TelaPesquisar extends JFrame {
 	public TelaPesquisar() {
 		setTitle("Tela Pesquisar");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 633, 446);
+		setBounds(100, 100, 716, 446);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{0, 0, 0};
+		gbl_contentPane.columnWidths = new int[]{0, 0, 0, 0};
 		gbl_contentPane.rowHeights = new int[]{0, 0, 0};
-		gbl_contentPane.columnWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.columnWeights = new double[]{1.0, 1.0, 0.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
@@ -101,6 +101,13 @@ public class TelaPesquisar extends JFrame {
 		panel_8.add(textField);
 		
 		JButton button_2 = new JButton("Pesquisar");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				
+				
+			}
+		});
 		panel_8.add(button_2);
 		
 		JButton button_3 = new JButton("Zerar");
@@ -109,7 +116,7 @@ public class TelaPesquisar extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
 		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
-		gbc_panel_2.insets = new Insets(0, 0, 5, 0);
+		gbc_panel_2.insets = new Insets(0, 0, 5, 5);
 		gbc_panel_2.fill = GridBagConstraints.BOTH;
 		gbc_panel_2.gridx = 1;
 		gbc_panel_2.gridy = 0;
@@ -135,6 +142,23 @@ public class TelaPesquisar extends JFrame {
 		
 		JButton button_1 = new JButton("Zerar");
 		panel_7.add(button_1);
+		
+		JButton btnVoltar = new JButton("<<<<");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			TelaPrincipal form = new TelaPrincipal();
+			form.setLocationRelativeTo(null);
+			form.setVisible(true);
+			dispose();
+			}
+		});
+		GridBagConstraints gbc_btnVoltar = new GridBagConstraints();
+		gbc_btnVoltar.fill = GridBagConstraints.VERTICAL;
+		gbc_btnVoltar.gridheight = 2;
+		gbc_btnVoltar.insets = new Insets(0, 0, 5, 0);
+		gbc_btnVoltar.gridx = 2;
+		gbc_btnVoltar.gridy = 0;
+		contentPane.add(btnVoltar, gbc_btnVoltar);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setLayout(null);
@@ -169,6 +193,7 @@ public class TelaPesquisar extends JFrame {
 		JPanel panel_4 = new JPanel();
 		panel_4.setLayout(null);
 		GridBagConstraints gbc_panel_4 = new GridBagConstraints();
+		gbc_panel_4.insets = new Insets(0, 0, 0, 5);
 		gbc_panel_4.fill = GridBagConstraints.BOTH;
 		gbc_panel_4.gridx = 1;
 		gbc_panel_4.gridy = 1;

@@ -49,14 +49,12 @@ public class Conecao {
         try {
 			Class.forName(DRIVER);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         // Capturar a conexão
         try {
 			conn = DriverManager.getConnection(URL, USUARIO, SENHA);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         // Retorna a conexao aberta

@@ -72,6 +72,10 @@ public class TelaPrincipal extends JFrame {
 		JButton btnResultado = new JButton("Pesquisar");
 		btnResultado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				TelaPesquisar form = new TelaPesquisar();
+				form.setLocationRelativeTo(null);
+				form.setVisible(true);
+				dispose();
 			}
 		});
 		panel.add(btnResultado);
@@ -89,6 +93,10 @@ public class TelaPrincipal extends JFrame {
 		);
 		
 		JButton btnPesquisar = new JButton("Resultado");
+		btnPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		panel.add(btnPesquisar);
 		contentPane.setLayout(gl_contentPane);
 	}
