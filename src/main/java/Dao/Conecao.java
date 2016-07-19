@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Dao {
+public class Conecao {
 
 	private static final String USUARIO = "root";
     private static final String SENHA = "4221";
@@ -13,7 +13,7 @@ public class Dao {
     private static final String DRIVER = "com.mysql.jdbc.Driver";
 
     // Conectar ao banco
-    public static Connection abrir() throws Exception {
+    public static Connection abrirConecao() throws Exception {
         // Registrar o driver
         Class.forName(DRIVER);
         // Capturar a conexão
