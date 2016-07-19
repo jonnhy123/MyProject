@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Class.Jogadas;
+import Dao.Conecao;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
@@ -14,6 +18,9 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class TelaJogar extends JFrame {
@@ -39,6 +46,10 @@ public class TelaJogar extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	
+	Jogadas j = new Jogadas();
+	private Connection conn = Conecao.abrirConecao();
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -151,6 +162,36 @@ public class TelaJogar extends JFrame {
 		txt_05.setColumns(10);
 		
 		JButton btnPlay = new JButton("Play");
+		btnPlay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				j.setNum_1(Integer.parseInt(txt_01.getText()));
+				j.setNum_2(Integer.parseInt(txt_02.getText()));
+				j.setNum_3(Integer.parseInt(txt_03.getText()));
+				j.setNum_4(Integer.parseInt(txt_04.getText()));
+				j.setNum_5(Integer.parseInt(txt_05.getText()));
+				j.setNum_6(Integer.parseInt(txt_06.getText()));
+				j.setNum_7(Integer.parseInt(txt_07.getText()));
+				j.setNum_8(Integer.parseInt(txt_08.getText()));
+				j.setNum_9(Integer.parseInt(txt_09.getText()));
+				j.setNum_10(Integer.parseInt(txt_10.getText()));
+				j.setNum_11(Integer.parseInt(txt_11.getText()));
+				j.setNum_12(Integer.parseInt(txt_12.getText()));
+				j.setNum_13(Integer.parseInt(txt_13.getText()));
+				j.setNum_14(Integer.parseInt(txt_14.getText()));
+				j.setNum_15(Integer.parseInt(txt_15.getText()));
+				j.setConcurso(Integer.parseInt(txtConcurso.getText()));
+			
+				try {
+					PreparedStatement pst = conn.prepareStatement("INSERT INTO jogadas(id_jogadas,num_1,num_2,num_3,num_4,"
+							+ "num_5,num_6,num_7,num_8,num_9,num_10,num_11,num_12,num_13,num_14,num_15)VALUES(?,?,"
+							+ "?,?,?,?,?,?,?,?,?,?,?,?,?,?,)");
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
 		GridBagConstraints gbc_btnPlay = new GridBagConstraints();
 		gbc_btnPlay.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnPlay.gridwidth = 5;
