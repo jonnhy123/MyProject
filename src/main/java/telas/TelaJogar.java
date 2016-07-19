@@ -12,6 +12,8 @@ import Dao.Conecao;
 
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
@@ -186,7 +188,29 @@ public class TelaJogar extends JFrame {
 					PreparedStatement pst = conn.prepareStatement("INSERT INTO jogadas(id_jogadas,num_1,num_2,num_3,num_4,"
 							+ "num_5,num_6,num_7,num_8,num_9,num_10,num_11,num_12,num_13,num_14,num_15)VALUES(?,?,"
 							+ "?,?,?,?,?,?,?,?,?,?,?,?,?,?,)");
+
+					pst.setInt(1, j.getConcurso());
+					pst.setInt(2, j.getNum_1());
+					pst.setInt(3, j.getNum_2());
+					pst.setInt(4, j.getNum_3());
+					pst.setInt(5, j.getNum_4());
+					pst.setInt(6, j.getNum_5());
+					pst.setInt(7, j.getNum_6());
+					pst.setInt(8, j.getNum_7());
+					pst.setInt(9, j.getNum_8());
+					pst.setInt(10, j.getNum_9());
+					pst.setInt(11, j.getNum_10());
+					pst.setInt(12, j.getNum_11());
+					pst.setInt(13, j.getNum_12());
+					pst.setInt(14, j.getNum_13());
+					pst.setInt(15, j.getNum_14());
+					pst.setInt(16, j.getNum_15());
+					
+					pst.executeUpdate();
+					
+					JOptionPane.showMessageDialog(rootPane, "Salvo com sucesso");
 				} catch (SQLException e1) {
+					JOptionPane.showMessageDialog(rootPane, "Erro na insercao");
 					e1.printStackTrace();
 				}
 				
