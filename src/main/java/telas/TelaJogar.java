@@ -187,7 +187,7 @@ public class TelaJogar extends JFrame {
 				try {
 					PreparedStatement pst = conn.prepareStatement("INSERT INTO jogadas(id_jogadas,num_1,num_2,num_3,num_4,"
 							+ "num_5,num_6,num_7,num_8,num_9,num_10,num_11,num_12,num_13,num_14,num_15)VALUES(?,?,"
-							+ "?,?,?,?,?,?,?,?,?,?,?,?,?,?,)");
+							+ "?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
 					pst.setInt(1, j.getConcurso());
 					pst.setInt(2, j.getNum_1());
