@@ -50,7 +50,7 @@ public class TelaJogar extends JFrame {
 	 */
 	
 	Jogadas j = new Jogadas();
-	private Connection conn = Conecao.abrirConecao();
+    private Connection conn = Conecao.abrirConecao();
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
