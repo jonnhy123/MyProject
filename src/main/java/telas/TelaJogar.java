@@ -242,6 +242,22 @@ public class TelaJogar extends JFrame {
 		JButton btnZerar = new JButton("Zerar");
 		btnZerar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			txt_01.setText("");
+			txt_02.setText("");
+			txt_03.setText("");
+			txt_04.setText("");
+			txt_05.setText("");
+			txt_06.setText("");
+			txt_07.setText("");
+			txt_08.setText("");
+			txt_09.setText("");
+			txt_10.setText("");
+			txt_11.setText("");
+			txt_12.setText("");
+			txt_13.setText("");
+			txt_14.setText("");
+			txt_15.setText("");
+			txtConcurso.setText("");
 			}
 		});
 		GridBagConstraints gbc_btnZerar = new GridBagConstraints();
