@@ -29,11 +29,11 @@ public class jogadasDao {
 			rs = pstm.executeQuery();
 			while (rs.next()) {
 				Jogadas jogadas = new Jogadas();
-				jogadas.setNum_1(rs.getInt("num_01"));
-				jogadas.setNum_2(rs.getInt("num_02"));
-				jogadas.setNum_3(rs.getInt("num_03"));
-				jogadas.setNum_4(rs.getInt("num_04"));
-				jogadas.setNum_5(rs.getInt("num_05"));
+				jogadas.setNum_1(rs.getInt("num_1"));//num_01 é o que está declarado no Banco MySQL.
+				jogadas.setNum_2(rs.getInt("num_2"));
+				jogadas.setNum_3(rs.getInt("num_3"));
+				jogadas.setNum_4(rs.getInt("num_4"));
+				jogadas.setNum_5(rs.getInt("num_5"));
 				jogada.add(jogadas);
 			}
 		} catch (SQLException e) {
