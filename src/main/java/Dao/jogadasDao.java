@@ -21,16 +21,25 @@ public class jogadasDao {
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
-		ArrayList<Jogadas> jogadas = new ArrayList<Jogadas>();
+		ArrayList<Jogadas> jogada = new ArrayList<Jogadas>();
 		
 		try {
 			conn = Conecao.abrirConecao();
 			pstm = conn.prepareStatement(SELECT);
 			rs = pstm.executeQuery();
+			while (rs.next()) {
+				Jogadas jogadas = new Jogadas();
+				jogadas.setNum_1(rs.getInt("num_01"));
+				jogadas.setNum_2(rs.getInt("num_02"));
+				jogadas.setNum_3(rs.getInt("num_03"));
+				jogadas.setNum_4(rs.getInt("num_04"));
+				jogadas.setNum_5(rs.getInt("num_05"));
+				jogada.add(jogadas);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return jogadas;
+		return jogada;
 	}
 
 }

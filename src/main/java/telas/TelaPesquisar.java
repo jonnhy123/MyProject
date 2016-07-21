@@ -43,6 +43,7 @@ public class TelaPesquisar extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	Jogadas j = new Jogadas();
 	
 	private JogadasTableModel modeloTabela;
 	List<Jogadas> listaJogadas;
@@ -104,8 +105,9 @@ public class TelaPesquisar extends JFrame {
 		panel_5.setBounds(10, 11, 281, 142);
 		panel_1.add(panel_5);
 		
-		table_01 = new JTable();
+		table_01 = new JTable(modeloTabela);
 		panel_5.add(table_01);
+		pesquisar();
 		
 		JPanel panel_8 = new JPanel();
 		panel_8.setBounds(0, 154, 301, 37);
@@ -122,7 +124,9 @@ public class TelaPesquisar extends JFrame {
 				int pValor = Integer.parseInt(txt_1.getText());
 				
 				try {
-					PreparedStatement pst = conn.prepareStatement("SELECT * FROM jogadas WHERE id_jogadas = "+pValor);
+					PreparedStatement pst = conn.prepareStatement("SELECT * FROM jogadas WHERE id_jogadas = ?");
+					pst.setInt(1, j.getConcurso());
+					pst.executeQuery();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
@@ -241,11 +245,11 @@ public class TelaPesquisar extends JFrame {
 		JButton button_7 = new JButton("Zerar");
 		panel_12.add(button_7);
 	}
-	   private void criaJTable() {
-	        table_01 = new JTable((TableModel) modeloTabela);
-	        pesquisar();
-
-	   }
+//	   private void criaJTable() {
+//	        table_01 = new JTable((TableModel) modeloTabela);
+//	        pesquisar();
+//	        
+//	   }
 	   
 	   private void pesquisar(){
 		   jogadasDao dao = new jogadasDao();

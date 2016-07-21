@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableModel;
 
 import Class.Jogadas;
 
@@ -55,5 +54,8 @@ public class JogadasTableModel extends AbstractTableModel {
 		}
 		return "Deu RUIM!!!";
 	}
-
+	 
+	public Jogadas getJogadas(int indiceLinha) {
+	        return linhas.get(indiceLinha);
+	 }
 }
