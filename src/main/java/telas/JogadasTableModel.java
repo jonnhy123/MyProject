@@ -15,6 +15,10 @@ public class JogadasTableModel extends AbstractTableModel {
 	private static final int COL_num4 = 3;
 	private static final int COL_num5 = 4;
 	
+	List<Jogadas> linhas;
+	private String[] colunas = new String[]{"num1","num2","num3",
+			"num4","num5"};
+	
 	public JogadasTableModel(List<Jogadas> listaJogadas) {
 		// TODO Auto-generated constructor stub
 	}
