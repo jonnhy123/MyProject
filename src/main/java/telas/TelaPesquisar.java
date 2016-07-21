@@ -6,8 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.TableModel;
 
+import Class.Jogadas;
 import Dao.Conecao;
+import Dao.jogadasDao;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -21,6 +24,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
@@ -40,6 +44,8 @@ public class TelaPesquisar extends JFrame {
 	 * Launch the application.
 	 */
 	
+	private JogadasTableModel modeloTabela;
+	List<Jogadas> listaJogadas;
 	private Connection conn = Conecao.abrirConecao();
 	
 	public static void main(String[] args) {
@@ -235,4 +241,16 @@ public class TelaPesquisar extends JFrame {
 		JButton button_7 = new JButton("Zerar");
 		panel_12.add(button_7);
 	}
+	   private void criaJTable() {
+	        table_01 = new JTable((TableModel) modeloTabela);
+	        pesquisar();
+
+	   }
+	   
+	   private void pesquisar(){
+		   jogadasDao dao = new jogadasDao();
+		   listaJogadas = dao.getJogadas();
+		   modeloTabela = new JogadasTableModel(listaJogadas);
+		   table_01.setModel(modeloTabela);
+	   }
 }

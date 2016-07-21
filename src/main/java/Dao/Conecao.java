@@ -66,7 +66,7 @@ public class Conecao {
     	  conn.close();
     	  System.out.println("Conexao finalizada com sucesso");
     	 }catch(Exception e){
-    	  System.out.println("Erro ao fechar conexao com banco" + e.getMessage());
+    	  System.out.println("Erro ao fechar conexao com banco " + e.getMessage());
     	 }
     }
 }
