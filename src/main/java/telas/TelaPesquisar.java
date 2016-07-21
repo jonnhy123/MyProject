@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Dao.Conecao;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.GridBagLayout;
@@ -15,6 +18,9 @@ import java.awt.Insets;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
@@ -24,7 +30,7 @@ public class TelaPesquisar extends JFrame {
 	private JTable table_01;
 	private JTable table_02;
 	private JTextField textField_1;
-	private JTextField textField;
+	private JTextField txt_1;
 	private JTable table;
 	private JTextField textField_2;
 	private JTable table_1;
@@ -33,6 +39,9 @@ public class TelaPesquisar extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	
+	private Connection conn = Conecao.abrirConecao();
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -96,15 +105,21 @@ public class TelaPesquisar extends JFrame {
 		panel_8.setBounds(0, 154, 301, 37);
 		panel_1.add(panel_8);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		panel_8.add(textField);
+		txt_1 = new JTextField();
+		txt_1.setColumns(10);
+		panel_8.add(txt_1);
 		
 		JButton button_2 = new JButton("Pesquisar");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
+				int pValor = Integer.parseInt(txt_1.getText());
 				
+				try {
+					PreparedStatement pst = conn.prepareStatement("SELECT * FROM jogadas WHERE id_jogadas = "+pValor);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 				
 			}
 		});
