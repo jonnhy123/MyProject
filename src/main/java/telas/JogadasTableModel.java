@@ -1,5 +1,6 @@
 package telas;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
@@ -20,25 +21,39 @@ public class JogadasTableModel extends AbstractTableModel {
 			"num4","num5"};
 	
 	public JogadasTableModel(List<Jogadas> listaJogadas) {
-		// TODO Auto-generated constructor stub
+		this.linhas = new ArrayList<>(listaJogadas);
 	}
 
 	@Override
 	public int getColumnCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return colunas.length;
 	}
 
 	@Override
 	public int getRowCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return linhas.size();
 	}
-
 	@Override
-	public Object getValueAt(int arg0, int arg1) {
-		// TODO Auto-generated method stub
-		return null;
+	public String getColumnName(int columnIndex) {
+	    return colunas[columnIndex];
+	}
+	
+	@Override
+	public Object getValueAt(int row, int column) {
+		Jogadas j = linhas.get(row);
+		
+		if(column == COL_num1){
+			return j.getNum_1();
+		}else if(column == COL_num2){
+			return j.getNum_2();
+		}else if(column == COL_num3){
+			return j.getNum_3();
+		}else if(column == COL_num4){
+			return j.getNum_4();
+		}else if(column == COL_num5){
+			return j.getNum_5();
+		}
+		return "Deu RUIM!!!";
 	}
 
 }
