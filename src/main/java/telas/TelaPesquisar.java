@@ -268,6 +268,12 @@ public class TelaPesquisar extends JFrame {
 			modelo.addColumn("col03");
 			modelo.addColumn("col04");
 			modelo.addColumn("col05");
+			//efinindo tamanho nas colunas da tabela
+			table_01.getColumnModel().getColumn(0).setPreferredWidth(55);
+			table_01.getColumnModel().getColumn(1).setPreferredWidth(55);
+			table_01.getColumnModel().getColumn(2).setPreferredWidth(55);
+			table_01.getColumnModel().getColumn(3).setPreferredWidth(55);
+			table_01.getColumnModel().getColumn(4).setPreferredWidth(55);
 			//procedimentos para obter ps dados de uma tabela
 			Statement stmt = conn.createStatement();
 			String query = "SELECT * FROM jogadas";
