@@ -261,7 +261,7 @@ public class TelaPesquisar extends JFrame {
 			
 			DefaultTableModel modelo = new DefaultTableModel();
 			//controi a tabela
-			table_04.setModel(modelo);
+			table_01.setModel(modelo);
 			//cria 2 colunas
 			modelo.addColumn("col01");
 			modelo.addColumn("col02");
