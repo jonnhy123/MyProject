@@ -23,6 +23,9 @@ public class JogadasTableModel extends AbstractTableModel {
 		this.linhas = new ArrayList<>(listaJogadas);
 	}
 
+	public JogadasTableModel() {
+	}
+
 	@Override
 	public int getColumnCount() {
 		return colunas.length;
@@ -55,6 +58,21 @@ public class JogadasTableModel extends AbstractTableModel {
 		return "Deu RUIM!!!";
 	}
 	 
+	 public void setValueAt(Object aValue, int row, int column) {
+		 Jogadas j = linhas.get(row);
+	        if (column == COL_num1) {
+	            j.setNum_1((Integer) aValue);
+	        } else if (column == COL_num1) {
+	            j.setNum_2((Integer) aValue);
+	        } else if (column == COL_num2) {
+	            j.setNum_3((Integer) aValue);
+	        } else if (column == COL_num3) {
+	            j.setNum_4((Integer) aValue);
+	        } else if (column == COL_num4) {
+	            j.setNum_5((Integer) aValue);
+	        }
+	    }
+	
 	public Jogadas getJogadas(int indiceLinha) {
 	        return linhas.get(indiceLinha);
 	 }

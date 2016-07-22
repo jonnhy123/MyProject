@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableModel;
 
+import org.omg.CORBA.OBJ_ADAPTER;
+
 import Class.Jogadas;
 import Dao.Conecao;
 import Dao.jogadasDao;
@@ -126,19 +128,9 @@ public class TelaPesquisar extends JFrame {
 			
 				int pValor = Integer.parseInt(txt_1.getText());
 				
-//				try {
-//					PreparedStatement pst = conn.prepareStatement("SELECT * FROM jogadas WHERE id_jogadas = ?");
-//					pst.setInt(1, j.getConcurso());
-//					pst.executeQuery();
-//				} catch (SQLException e1) {
-//					e1.printStackTrace();
-//				}
-				
-//				table_01.setModel(modeloTabela);
 				try {
 					JogaNaTabela();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -268,18 +260,30 @@ public class TelaPesquisar extends JFrame {
 			modelo.addColumn("col03");
 			modelo.addColumn("col04");
 			modelo.addColumn("col05");
+//			modelo.addColumn("col06");
+//			modelo.addColumn("col07");
+//			modelo.addColumn("col08");
+//			modelo.addColumn("col09");
+//			modelo.addColumn("col010");
 			//efinindo tamanho nas colunas da tabela
 			table_01.getColumnModel().getColumn(0).setPreferredWidth(55);
 			table_01.getColumnModel().getColumn(1).setPreferredWidth(55);
 			table_01.getColumnModel().getColumn(2).setPreferredWidth(55);
 			table_01.getColumnModel().getColumn(3).setPreferredWidth(55);
 			table_01.getColumnModel().getColumn(4).setPreferredWidth(55);
+//			table_01.getColumnModel().getColumn(5).setPreferredWidth(55);
+//			table_01.getColumnModel().getColumn(6).setPreferredWidth(55);
+//			table_01.getColumnModel().getColumn(7).setPreferredWidth(55);
+//			table_01.getColumnModel().getColumn(8).setPreferredWidth(55);
+//			table_01.getColumnModel().getColumn(9).setPreferredWidth(55);
 			//procedimentos para obter ps dados de uma tabela
 			Statement stmt = conn.createStatement();
 			String query = "SELECT * FROM jogadas";
 			ResultSet rs = stmt.executeQuery(query);
 			
-			int num1,num2,num3,num4,num5;
+			int num1,num2,num3,num4,num5,
+			num6,num7,num8,num9,num10,
+			num11,num12,num13,num14,num15;
 			
 			while (rs.next()) {
 				num1 = rs.getInt("num_1");
@@ -287,87 +291,24 @@ public class TelaPesquisar extends JFrame {
 				num3 = rs.getInt("num_3");
 				num4 = rs.getInt("num_4");
 				num5 = rs.getInt("num_5");
+				num6 = rs.getInt("num_6");
+				num7 = rs.getInt("num_7");
+				num8 = rs.getInt("num_8");
+				num9 = rs.getInt("num_9");
+				num10 = rs.getInt("num_10");
+				num11 = rs.getInt("num_11");
+				num12 = rs.getInt("num_11");
+				num13 = rs.getInt("num_13");
+				num14 = rs.getInt("num_14");
+				num15 = rs.getInt("num_15");
 				modelo.addRow(new Object[]{new Integer(num1),new Integer(num2),
 						new Integer(num3),new Integer(num4),new Integer(num5)});
+				modelo.addRow(new Object[]{new Integer(num6),new Integer(num7),
+						new Integer(num8),new Integer(num9),new Integer(num10)});
+				modelo.addRow(new Object[]{new Integer(num11),new Integer(num12),
+						new Integer(num13),new Integer(num14),new Integer(num15)});
+				}
 			}
-			//fim procedimento para obter dados
 			
-		}
-	
-//	   private void pesquisar(int numConcurso){
-//		   
-////		   Connection minhaconexao = new Conecao().abrirConecao(); 
-//		   try {
-//		   Statement comando = conn.createStatement(); 
-//		   ResultSet rs = comando.executeQuery("select * from jogadas"); 
-//		   while (rs.next()) 
-//		   { 
-//		   System.out.println(rs.getString(1)); 
-//		   System.out.println(rs.getString(2)); 
-//		   System.out.println(rs.getString(3)); 
-//		   table_01.getModel();
-//		   }
-//		   
-//		   jogadasDao dao = new jogadasDao();
-//		   listaJogadas = dao.getJogadas();
-//		   modeloTabela = new JogadasTableModel(listaJogadas);
-//		   table_01.setModel(new DefaultTableModel(){});
-//		   table_01.getColumnModel().getColumn(0).setPreferredWidth(55);
-//		   table_01.getColumnModel().getColumn(1).setPreferredWidth(55);
-//		   table_01.getColumnModel().getColumn(2).setPreferredWidth(55);
-//		   table_01.getColumnModel().getColumn(3).setPreferredWidth(55);
-//		   table_01.getColumnModel().getColumn(4).setPreferredWidth(55);
-//	   
-//		   DefaultTableModel dtm2 =  new DefaultTableModel(); 
-//		   table_1.getModel();  
-//		   dtm2.setNumRows(0);  
-//		   //ISO TIRA AS LINHAS DA TABELA  
-//		     
-//
-//		   dtm2.addRow(new Object[]{" "," "," "});// cada " " para cada coluna  
-//		   table_1.setValueAt(rs.getString(1),numConcurso,0);  
-//		   table_1.setValueAt(rs.getString(2),numConcurso,1);  
-//		   table_1.setValueAt(rs.getString(3),numConcurso,2);  
-//
-//		   
-//			conn.close();
-//			rs.close(); 
-//			comando.close(); 
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} 
-//		   }
-}
-		   
-//		   jogadasDao dao = new jogadasDao();
-//		   listaJogadas = dao.getJogadas();
-//		   modeloTabela = new JogadasTableModel(listaJogadas);
-//		   table_01.setModel(new DefaultTableModel(){});
-//		   table_01.getColumnModel().getColumn(0).setPreferredWidth(55);
-//		   table_01.getColumnModel().getColumn(1).setPreferredWidth(55);
-//		   table_01.getColumnModel().getColumn(2).setPreferredWidth(55);
-//		   table_01.getColumnModel().getColumn(3).setPreferredWidth(55);
-//		   table_01.getColumnModel().getColumn(4).setPreferredWidth(55);
-//	   }
-//		   	new Object[] {
-//		   		{new Integer(5), new Integer(2), new Integer(7), new Integer(4), new Integer(5)},
-//		   	},
-//		   	new String[] {
-//		   		"num1", "num2", "num3", "num4", "num5"
-//		   	}
-//		   ) {
-//		   	boolean[] columnEditables = new boolean[] {
-//		   		false, false, false, false, false
-//		   	};
-//		   	public boolean isCellEditable(int row, int column) {
-//		   		return columnEditables[column];
-//		   	}
-//		   });
-//		   table_01.getColumnModel().getColumn(0).setPreferredWidth(55);
-//		   table_01.getColumnModel().getColumn(1).setPreferredWidth(55);
-//		   table_01.getColumnModel().getColumn(2).setPreferredWidth(55);
-//		   table_01.getColumnModel().getColumn(3).setPreferredWidth(55);
-//		   table_01.getColumnModel().getColumn(4).setPreferredWidth(55);
-//	   }
-	  
-	   
+			//fim procedimento para obter dados
+	}
