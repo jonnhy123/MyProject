@@ -23,10 +23,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 public class TelaPesquisar extends JFrame {
 
@@ -35,9 +38,9 @@ public class TelaPesquisar extends JFrame {
 	private JTable table_02;
 	private JTextField textField_1;
 	private JTextField txt_1;
-	private JTable table;
+	private JTable table_03;
 	private JTextField textField_2;
-	private JTable table_1;
+	private JTable table_04;
 	private JTextField textField_3;
 
 	/**
@@ -107,7 +110,7 @@ public class TelaPesquisar extends JFrame {
 		
 		table_01 = new JTable(modeloTabela);
 		panel_5.add(table_01);
-		pesquisar();
+//		pesquisar();
 		
 		JPanel panel_8 = new JPanel();
 		panel_8.setBounds(0, 154, 301, 37);
@@ -123,16 +126,24 @@ public class TelaPesquisar extends JFrame {
 			
 				int pValor = Integer.parseInt(txt_1.getText());
 				
+//				try {
+//					PreparedStatement pst = conn.prepareStatement("SELECT * FROM jogadas WHERE id_jogadas = ?");
+//					pst.setInt(1, j.getConcurso());
+//					pst.executeQuery();
+//				} catch (SQLException e1) {
+//					e1.printStackTrace();
+//				}
+				
+//				table_01.setModel(modeloTabela);
 				try {
-					PreparedStatement pst = conn.prepareStatement("SELECT * FROM jogadas WHERE id_jogadas = ?");
-					pst.setInt(1, j.getConcurso());
-					pst.executeQuery();
+					JogaNaTabela();
 				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
 			}
 		});
+		
 		panel_8.add(button_2);
 		
 		JButton button_3 = new JButton("Zerar");
@@ -198,8 +209,8 @@ public class TelaPesquisar extends JFrame {
 		panel_9.setBounds(10, 11, 281, 142);
 		panel_3.add(panel_9);
 		
-		table = new JTable();
-		panel_9.add(table);
+		table_03 = new JTable();
+		panel_9.add(table_03);
 		
 		JPanel panel_10 = new JPanel();
 		panel_10.setBounds(0, 159, 301, 37);
@@ -228,8 +239,8 @@ public class TelaPesquisar extends JFrame {
 		panel_11.setBounds(10, 11, 281, 142);
 		panel_4.add(panel_11);
 		
-		table_1 = new JTable();
-		panel_11.add(table_1);
+		table_04 = new JTable();
+		panel_11.add(table_04);
 		
 		JPanel panel_12 = new JPanel();
 		panel_12.setBounds(-10, 159, 301, 37);
@@ -245,16 +256,112 @@ public class TelaPesquisar extends JFrame {
 		JButton button_7 = new JButton("Zerar");
 		panel_12.add(button_7);
 	}
-//	   private void criaJTable() {
-//	        table_01 = new JTable((TableModel) modeloTabela);
-//	        pesquisar();
-//	        
-//	   }
-	   
-	   private void pesquisar(){
-		   jogadasDao dao = new jogadasDao();
-		   listaJogadas = dao.getJogadas();
-		   modeloTabela = new JogadasTableModel(listaJogadas);
-		   table_01.setModel(modeloTabela);
-	   }
+
+		private void JogaNaTabela() throws SQLException{
+			
+			DefaultTableModel modelo = new DefaultTableModel();
+			//controi a tabela
+			table_04.setModel(modelo);
+			//cria 2 colunas
+			modelo.addColumn("col01");
+			modelo.addColumn("col02");
+			modelo.addColumn("col03");
+			modelo.addColumn("col04");
+			modelo.addColumn("col05");
+			//procedimentos para obter ps dados de uma tabela
+			Statement stmt = conn.createStatement();
+			String query = "SELECT * FROM jogadas";
+			ResultSet rs = stmt.executeQuery(query);
+			
+			int num1,num2,num3,num4,num5;
+			
+			while (rs.next()) {
+				num1 = rs.getInt("num_1");
+				num2 = rs.getInt("num_2");
+				num3 = rs.getInt("num_3");
+				num4 = rs.getInt("num_4");
+				num5 = rs.getInt("num_5");
+				modelo.addRow(new Object[]{new Integer(num1),new Integer(num2),
+						new Integer(num3),new Integer(num4),new Integer(num5)});
+			}
+			//fim procedimento para obter dados
+			
+		}
+	
+//	   private void pesquisar(int numConcurso){
+//		   
+////		   Connection minhaconexao = new Conecao().abrirConecao(); 
+//		   try {
+//		   Statement comando = conn.createStatement(); 
+//		   ResultSet rs = comando.executeQuery("select * from jogadas"); 
+//		   while (rs.next()) 
+//		   { 
+//		   System.out.println(rs.getString(1)); 
+//		   System.out.println(rs.getString(2)); 
+//		   System.out.println(rs.getString(3)); 
+//		   table_01.getModel();
+//		   }
+//		   
+//		   jogadasDao dao = new jogadasDao();
+//		   listaJogadas = dao.getJogadas();
+//		   modeloTabela = new JogadasTableModel(listaJogadas);
+//		   table_01.setModel(new DefaultTableModel(){});
+//		   table_01.getColumnModel().getColumn(0).setPreferredWidth(55);
+//		   table_01.getColumnModel().getColumn(1).setPreferredWidth(55);
+//		   table_01.getColumnModel().getColumn(2).setPreferredWidth(55);
+//		   table_01.getColumnModel().getColumn(3).setPreferredWidth(55);
+//		   table_01.getColumnModel().getColumn(4).setPreferredWidth(55);
+//	   
+//		   DefaultTableModel dtm2 =  new DefaultTableModel(); 
+//		   table_1.getModel();  
+//		   dtm2.setNumRows(0);  
+//		   //ISO TIRA AS LINHAS DA TABELA  
+//		     
+//
+//		   dtm2.addRow(new Object[]{" "," "," "});// cada " " para cada coluna  
+//		   table_1.setValueAt(rs.getString(1),numConcurso,0);  
+//		   table_1.setValueAt(rs.getString(2),numConcurso,1);  
+//		   table_1.setValueAt(rs.getString(3),numConcurso,2);  
+//
+//		   
+//			conn.close();
+//			rs.close(); 
+//			comando.close(); 
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} 
+//		   }
 }
+		   
+//		   jogadasDao dao = new jogadasDao();
+//		   listaJogadas = dao.getJogadas();
+//		   modeloTabela = new JogadasTableModel(listaJogadas);
+//		   table_01.setModel(new DefaultTableModel(){});
+//		   table_01.getColumnModel().getColumn(0).setPreferredWidth(55);
+//		   table_01.getColumnModel().getColumn(1).setPreferredWidth(55);
+//		   table_01.getColumnModel().getColumn(2).setPreferredWidth(55);
+//		   table_01.getColumnModel().getColumn(3).setPreferredWidth(55);
+//		   table_01.getColumnModel().getColumn(4).setPreferredWidth(55);
+//	   }
+//		   	new Object[] {
+//		   		{new Integer(5), new Integer(2), new Integer(7), new Integer(4), new Integer(5)},
+//		   	},
+//		   	new String[] {
+//		   		"num1", "num2", "num3", "num4", "num5"
+//		   	}
+//		   ) {
+//		   	boolean[] columnEditables = new boolean[] {
+//		   		false, false, false, false, false
+//		   	};
+//		   	public boolean isCellEditable(int row, int column) {
+//		   		return columnEditables[column];
+//		   	}
+//		   });
+//		   table_01.getColumnModel().getColumn(0).setPreferredWidth(55);
+//		   table_01.getColumnModel().getColumn(1).setPreferredWidth(55);
+//		   table_01.getColumnModel().getColumn(2).setPreferredWidth(55);
+//		   table_01.getColumnModel().getColumn(3).setPreferredWidth(55);
+//		   table_01.getColumnModel().getColumn(4).setPreferredWidth(55);
+//	   }
+	  
+	   

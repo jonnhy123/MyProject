@@ -34,8 +34,19 @@ public class jogadasDao {
 				jogadas.setNum_3(rs.getInt("num_3"));
 				jogadas.setNum_4(rs.getInt("num_4"));
 				jogadas.setNum_5(rs.getInt("num_5"));
+				jogadas.setNum_1(rs.getInt("num_6"));//num_01 é o que está declarado no Banco MySQL.
+				jogadas.setNum_2(rs.getInt("num_7"));
+				jogadas.setNum_3(rs.getInt("num_8"));
+				jogadas.setNum_4(rs.getInt("num_9"));
+				jogadas.setNum_5(rs.getInt("num_10"));
+				jogadas.setNum_1(rs.getInt("num_11"));//num_01 é o que está declarado no Banco MySQL.
+				jogadas.setNum_2(rs.getInt("num_12"));
+				jogadas.setNum_3(rs.getInt("num_13"));
+				jogadas.setNum_4(rs.getInt("num_14"));
+				jogadas.setNum_5(rs.getInt("num_15"));
 				jogada.add(jogadas);
 			}
+			Conecao.fecharConecao(conn, pstm, rs);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -2,6 +2,8 @@ package Dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -61,7 +63,7 @@ public class Conecao {
         return conn;
     }
 
-    public void fecharConecao(){
+    public static void fecharConecao(Connection conn2, PreparedStatement pstm, ResultSet rs){
     	 try{
     	  conn.close();
     	  System.out.println("Conexao finalizada com sucesso");

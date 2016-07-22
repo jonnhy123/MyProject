@@ -9,11 +9,11 @@ import Class.Jogadas;
 
 public class JogadasTableModel extends AbstractTableModel {
 
-	private static final int COL_num1 = 0;
-	private static final int COL_num2 = 1;
-	private static final int COL_num3 = 2;
-	private static final int COL_num4 = 3;
-	private static final int COL_num5 = 4;
+	private static final int COL_num1 = 1;
+	private static final int COL_num2 = 2;
+	private static final int COL_num3 = 3;
+	private static final int COL_num4 = 4;
+	private static final int COL_num5 = 5;
 	
 	List<Jogadas> linhas;
 	private String[] colunas = new String[]{"num1","num2","num3",
