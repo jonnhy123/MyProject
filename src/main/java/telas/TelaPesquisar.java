@@ -129,7 +129,7 @@ public class TelaPesquisar extends JFrame {
 				int pValor = Integer.parseInt(txt_1.getText());
 				
 				try {
-					JogaNaTabela();
+					JogaNaTabela(pValor);
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
@@ -249,10 +249,10 @@ public class TelaPesquisar extends JFrame {
 		panel_12.add(button_7);
 	}
 
-		private void JogaNaTabela() throws SQLException{
+		private void JogaNaTabela(int valor) throws SQLException{
 			
 			DefaultTableModel modelo = new DefaultTableModel();
-			//controi a tabela
+			//constroi a tabela
 			table_01.setModel(modelo);
 			//cria 2 colunas
 			modelo.addColumn("col01");
@@ -260,25 +260,15 @@ public class TelaPesquisar extends JFrame {
 			modelo.addColumn("col03");
 			modelo.addColumn("col04");
 			modelo.addColumn("col05");
-//			modelo.addColumn("col06");
-//			modelo.addColumn("col07");
-//			modelo.addColumn("col08");
-//			modelo.addColumn("col09");
-//			modelo.addColumn("col010");
-			//efinindo tamanho nas colunas da tabela
+			//definindo tamanho nas colunas da tabela
 			table_01.getColumnModel().getColumn(0).setPreferredWidth(55);
 			table_01.getColumnModel().getColumn(1).setPreferredWidth(55);
 			table_01.getColumnModel().getColumn(2).setPreferredWidth(55);
 			table_01.getColumnModel().getColumn(3).setPreferredWidth(55);
 			table_01.getColumnModel().getColumn(4).setPreferredWidth(55);
-//			table_01.getColumnModel().getColumn(5).setPreferredWidth(55);
-//			table_01.getColumnModel().getColumn(6).setPreferredWidth(55);
-//			table_01.getColumnModel().getColumn(7).setPreferredWidth(55);
-//			table_01.getColumnModel().getColumn(8).setPreferredWidth(55);
-//			table_01.getColumnModel().getColumn(9).setPreferredWidth(55);
 			//procedimentos para obter ps dados de uma tabela
 			Statement stmt = conn.createStatement();
-			String query = "SELECT * FROM jogadas";
+			String query = "SELECT * FROM jogadas WHERE id_jogadas ="+valor;
 			ResultSet rs = stmt.executeQuery(query);
 			
 			int num1,num2,num3,num4,num5,
@@ -297,7 +287,7 @@ public class TelaPesquisar extends JFrame {
 				num9 = rs.getInt("num_9");
 				num10 = rs.getInt("num_10");
 				num11 = rs.getInt("num_11");
-				num12 = rs.getInt("num_11");
+				num12 = rs.getInt("num_12");
 				num13 = rs.getInt("num_13");
 				num14 = rs.getInt("num_14");
 				num15 = rs.getInt("num_15");
