@@ -139,6 +139,11 @@ public class TelaPesquisar extends JFrame {
 		panel_8.add(button_2);
 		
 		JButton button_3 = new JButton("Zerar");
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			
+			}
+		});
 		panel_8.add(button_3);
 		
 		JPanel panel_2 = new JPanel();

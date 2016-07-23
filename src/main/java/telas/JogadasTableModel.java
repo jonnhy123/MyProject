@@ -19,8 +19,8 @@ public class JogadasTableModel extends AbstractTableModel {
 	private String[] colunas = new String[]{"num1","num2","num3",
 			"num4","num5"};
 	
-	public JogadasTableModel(List<Jogadas> listaJogadas) {
-		this.linhas = new ArrayList<>(listaJogadas);
+	public JogadasTableModel(List<Jogadas> lista) {
+		this.linhas = new ArrayList<>(lista);
 	}
 
 	public JogadasTableModel() {
